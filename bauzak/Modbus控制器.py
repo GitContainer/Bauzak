@@ -1,5 +1,5 @@
 
-from pymodbus.client.sync import ModbusTcpClient
+from pymodbus3.client.sync import ModbusTcpClient
 
 
 class Modbus控制器:
