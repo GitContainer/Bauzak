@@ -25,6 +25,10 @@ class Modbus試驗(Modbus控制器):
             開始 = int(位址.strip('R'))
             結果 = self.連線.read_holding_registers(開始, 1)
             return 結果.registers[0]
+        if 位址.startswith('C'):
+            開始 = int(位址.strip('C')) + self.Fatek_PLC_offset['C']
+            結果 = self.連線.read_holding_registers(開始, 1)
+            return 結果.registers[0]
         if 位址.startswith('M'):
             開始 = int(位址.strip('M')) + self.Fatek_PLC_offset['M']
             結果 = self.連線.read_coils(開始, 1)
@@ -39,8 +43,12 @@ class Modbus試驗(Modbus控制器):
             開始 = int(位址.strip('R'))
             self.連線.write_registers(開始, [value])
             return
+        if 位址.startswith('C'):
+            開始 = int(位址.strip('C')) + self.Fatek_PLC_offset['C']
+            self.連線.write_registers(開始, [value])
+            return
         if 位址.startswith('M'):
-            開始 = int(位址.strip('M'))
+            開始 = int(位址.strip('M')) + self.Fatek_PLC_offset['M']
             self.連線.write_coil(開始, value)
             return
         raise ValueError()
