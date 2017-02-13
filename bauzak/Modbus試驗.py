@@ -3,7 +3,7 @@ from bauzak.Modbus控制器 import Modbus控制器
 
 class Modbus試驗(Modbus控制器):
 
-    'https://pypi.python.org/pypi/fatek-fbs-lib/0.1.4'
+    'https://github.com/rimek/fatek-fbs-lib/blob/master/fatek/symbol.py'
     Fatek_PLC_offset = {
         'Y': 0,
         'X': 1000,
