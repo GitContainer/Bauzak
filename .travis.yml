@@ -1,0 +1,27 @@
+sudo: false
+language: python
+python:
+- '3.4'
+- '3.5'
+install:
+- pip install flake8
+- pip install python-coveralls
+branches:
+  only:
+  - master
+  - "/\\d+\\.\\d+\\.\\d+/"
+script:
+- coverage run --source=fatek -m unittest discover
+- flake8 .
+after_success:
+- coverage report
+- coveralls
+deploy:
+  provider: pypi
+  user: sih4sing5hong5
+  password:
+    secure: FZFZtDTjmzJULTMl7+6z82TsH1xJIrc9HWZbqX572C4KxEoaVev7QlEsb+MiU404fFInD8IRndgVGklLSccB6SXR45w8aWjYYsl8bv8BxsZ2iHaOXtzZ81Sp4N/kA7ZU4Kt1RGrD4t888BaM2LXBZlcglxFODbVFjfKa01DnJKhbOry1KzE/qMCpHHOpa3KSNMRBj1f4RBjuPy0Y8g7OHOjGHsF8js3l87QBcxnWz09iaGhlLao9NmmXgDNId1ccT5gRETEvyWjLBxhXas+KL/FJgCtcjYFAdoIYMuqcmECZAXkDi/IRycKIHHiddnb4rzj6F4oMb/aY5vCTvB4W6w7BKDJzNRmA/PCVak2sbqkiohEyXIADcOiTlL/uPLMVTgmR3RzmuTuhDyaUwjuq00nMvPrNxa5a1cvQrhybmQdP/snn/m+DEpQlQwN1RTgcPRFw9qiLaCBdiWn7Xtq5TJgFR06LAo96mQLaS36NK3jeUu6aD0QaBD8Z9GdbRztydyZqsJLxP4xyztPQduj1ml8ffu3/io2HpFmWWw+9NexkniSxaACADXIuTdm9vPieWzmmZSNc4qAFhSRMdHjSN6nHBytDXnNQnoIpcZpFc5GYvFEm+YtFCq6ei1417YJjzmLP4Kj2qgOEldftJ2gCZgNgCTl3tXf/X/7iuqtfoBc=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: i3thuan5/Bauzak
