@@ -6,3 +6,6 @@
 [![made in taiwan](https://img.shields.io/badge/made%20in-taiwan-blue.svg)](https://itaigi.tw)
 
 PLC工具
+
+## 專案名
+取自埔里噶哈巫語的[豬](https://kaxabu.意傳.台灣/Bauzak)
