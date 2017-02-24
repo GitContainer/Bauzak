@@ -64,4 +64,4 @@ class Modbus控制器:
             2020, [8, 0, 17, 0, 19, 0, 4, 0, 0, 0, 0, 0])
 
     def tui2si5(self):
-        result = self.連線.write_registers(2010, [13, 36, 14, 29, 12, 16, 1])
+        self.連線.write_registers(2010, [13, 36, 14, 29, 12, 16, 1])
