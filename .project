@@ -3,6 +3,7 @@
 	<name>Bauzak</name>
 	<comment></comment>
 	<projects>
+		<project>fatek-fbs-lib</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

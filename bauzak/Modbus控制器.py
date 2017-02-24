@@ -1,4 +1,4 @@
-
+from fatek.target import FatekTarget
 from pymodbus3.client.sync import ModbusTcpClient
 
 
@@ -12,6 +12,9 @@ class Modbus控制器:
 
     def 停止(self):
         self.連線.close()
+
+    def 讀一个(self, 所在):
+        return FatekTarget(self.連線, 所在).read()
 
     def 讀32位元的資料(self, 表):
         位置名對應表 = {}
