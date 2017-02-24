@@ -60,7 +60,7 @@ class Modbus控制器:
     def sia2_32位元的資料(self):
         result = self.連線.read_holding_registers(4128, 6)
         print(result.registers)
-        result = self.連線.write_registers(
+        self.連線.write_registers(
             2020, [8, 0, 17, 0, 19, 0, 4, 0, 0, 0, 0, 0])
 
     def tui2si5(self):
