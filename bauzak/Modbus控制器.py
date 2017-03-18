@@ -21,7 +21,7 @@ class Modbus控制器:
     def 讀32位元的資料(self, 表):
         位置名對應表 = {}
         for 位, 名 in 表.items():
-            位置名對應表[Symbol(位).offset] = 名
+            位置名對應表[Symbol(位, current_value=True).offset] = 名
 
         這段開始 = None
         這段結束 = None

@@ -24,6 +24,20 @@ class 讀coils(TestCase):
         self.PLC控制.讀32位元的資料(表)
         self.PLC控制.連線.read_holding_registers.assert_called_once_with(1036, 2)
 
+    def test_特殊counter(self):
+        表 = {
+            'C255': 'A做了幾項',
+        }
+        self.PLC控制.讀32位元的資料(表)
+        try:
+            self.PLC控制.連線.read_holding_registers.assert_called_once_with(
+                9810, 2
+            )
+        except:
+            self.PLC控制.連線.read_holding_registers.assert_called_once_with(
+                9865, 2
+            )
+
     def test_讀的表佇仝一段(self):
         表 = {
             'R1036': 'A做了幾項',
