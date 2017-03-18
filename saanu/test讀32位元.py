@@ -90,7 +90,7 @@ class 讀32位元(TestCase):
         頭一个回應 = MagicMock()
         頭一个回應.registers = [10, 0, 20000, 0]
         第二个回應 = MagicMock()
-        第二个回應.registers = [3, 6, 0, 0, 0, 1]
+        第二个回應.registers = [3, 6, 7, 5, 0, 1]
         self.PLC控制.連線.read_holding_registers.side_effect = [頭一个回應, 第二个回應]
 
         結果 = self.PLC控制.讀32位元的資料(表)
