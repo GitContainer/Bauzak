@@ -4,7 +4,7 @@ from distutils.core import setup
 setup(
     name='Bauzak',
     packages=['bauzak'],
-    version='0.0.2',
+    version='0.0.3',
     description='PLC工具',
     long_description='PLC工具',
     author='薛丞宏',
