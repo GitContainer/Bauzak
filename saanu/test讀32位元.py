@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 from bauzak.Modbus控制器 import Modbus控制器
 
 
-class 讀coils(TestCase):
+class 讀32位元(TestCase):
 
     def setUp(self):
         self.PLC控制 = Modbus控制器(
