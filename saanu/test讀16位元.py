@@ -19,14 +19,14 @@ class 讀16位元(TestCase):
 
     def test_一个(self):
         表 = {
-            'R1036': 'A做了幾項',
+            'A做了幾項': 'R1036',
         }
         self.PLC控制.讀16位元的資料(表)
         self.PLC控制.連線.read_holding_registers.assert_called_once_with(1036, 1)
 
     def test_特殊counter(self):
         表 = {
-            'C255': 'A做了幾項',
+            'A做了幾項': 'C255',
         }
         self.PLC控制.讀16位元的資料(表)
         try:
@@ -40,24 +40,24 @@ class 讀16位元(TestCase):
 
     def test_讀的表佇仝一段(self):
         表 = {
-            'R1036': 'A做了幾項',
-            'R1038': 'B做了幾項',
+            'A做了幾項': 'R1036',
+            'B做了幾項': 'R1038',
         }
         self.PLC控制.讀16位元的資料(表)
         self.PLC控制.連線.read_holding_registers.assert_called_once_with(1036, 3)
 
     def test_仝段上遠(self):
         表 = {
-            'R1000': 'A做了幾項',
-            'R1124': 'B做了幾項',
+            'A做了幾項': 'R1000',
+            'B做了幾項': 'R1124',
         }
         self.PLC控制.讀16位元的資料(表)
         self.PLC控制.連線.read_holding_registers.assert_called_once_with(1000, 125)
 
     def test_讀的表佇無仝一段(self):
         表 = {
-            'R1000': 'A做了幾項',
-            'R1125': 'B做了幾項',
+            'A做了幾項': 'R1000',
+            'B做了幾項': 'R1125',
         }
         self.PLC控制.讀16位元的資料(表)
         self.PLC控制.連線.read_holding_registers.assert_any_call(1000, 1)
@@ -65,10 +65,10 @@ class 讀16位元(TestCase):
 
     def test_無仝的暫存器嘛會使(self):
         表 = {
-            'R1036': 'A做了幾項',
-            'R1136': 'AA做了幾項',
-            'D100': 'B做了幾項',
-            'D110': 'BB做了幾項',
+            'A做了幾項': 'R1036',
+            'AA做了幾項': 'R1136',
+            'B做了幾項': 'D100',
+            'BB做了幾項': 'D110',
         }
         self.PLC控制.讀16位元的資料(表)
         self.PLC控制.連線.read_holding_registers.assert_any_call(1036, 101)
@@ -76,10 +76,10 @@ class 讀16位元(TestCase):
 
     def test_暫存器數字(self):
         表 = {
-            'R1036': 'A做了幾項',
-            'R1038': 'AA做了幾項',
-            'D100': 'B做了幾項',
-            'D104': 'BB做了幾項',
+            'A做了幾項': 'R1036',
+            'AA做了幾項': 'R1038',
+            'B做了幾項': 'D100',
+            'BB做了幾項': 'D104',
         }
         答案 = {
             'A做了幾項': 10,
@@ -98,9 +98,9 @@ class 讀16位元(TestCase):
 
     def test_連續暫存器(self):
         表 = {
-            'R1036': 'A做了幾項',
-            'R1037': 'AA做了幾項',
-            'R1038': 'AAA做了幾項',
+            'A做了幾項': 'R1036',
+            'AA做了幾項': 'R1037',
+            'AAA做了幾項': 'R1038',
         }
         答案 = {
             'A做了幾項':  1,
